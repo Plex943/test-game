@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1j3talj3sh4x"]
+
+[ext_resource type="Script" path="res://globals/transitionLayer.gd" id="1_qhvh1"]
+
+[sub_resource type="Animation" id="Animation_yijmn"]
+resource_name = "black_fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rkcdf"]
+_data = {
+"black_fade": SubResource("Animation_yijmn")
+}
+
+[node name="transitionLayer" type="CanvasLayer"]
+script = ExtResource("1_qhvh1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rkcdf")
+}

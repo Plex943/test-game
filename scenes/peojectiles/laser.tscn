@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn80ffj8hbs2e"]
+
+[ext_resource type="Texture2D" uid="uid://csnkc10nnvliu" path="res://graphics/projectiles/blue.png" id="1_66rpr"]
+[ext_resource type="Script" path="res://scenes/script/laser.gd" id="1_hxk31"]
+[ext_resource type="Texture2D" uid="uid://ra5dfd51gck8" path="res://graphics/lights/textures/circle.png" id="3_v1p0s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kxefk"]
+radius = 5.0
+height = 60.0
+
+[node name="laser" type="Area2D"]
+position = Vector2(0, 1)
+collision_layer = 8
+collision_mask = 23
+script = ExtResource("1_hxk31")
+
+[node name="laserSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 5)
+texture = ExtResource("1_66rpr")
+
+[node name="colision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -43)
+shape = SubResource("CapsuleShape2D_kxefk")
+
+[node name="TimerDestroyLaser" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-1, -36)
+color = Color(0, 0.678431, 0.678431, 0.678431)
+energy = 4.0
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("3_v1p0s")
+texture_scale = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="TimerDestroyLaser" to="." method="_on_timer_destroy_laser_timeout"]

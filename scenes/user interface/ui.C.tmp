@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://blgymg152wqii"]
+
+[ext_resource type="Theme" uid="uid://baf5yimj47e3u" path="res://scenes/user interface/font.tres" id="1_8stmh"]
+[ext_resource type="Script" path="res://scenes/script/ui.gd" id="1_ot4a0"]
+[ext_resource type="Texture2D" uid="uid://wphd8b12or72" path="res://graphics/ui/bullet.png" id="1_vfthx"]
+[ext_resource type="Texture2D" uid="uid://cklwbnyccbxql" path="res://graphics/ui/grenade.png" id="2_d8j8m"]
+[ext_resource type="Texture2D" uid="uid://gpt4johjvmik" path="res://graphics/ui/progress_bar/bg.png" id="4_qh5cx"]
+[ext_resource type="Texture2D" uid="uid://dgddbflcenatw" path="res://graphics/ui/progress_bar/progress.png" id="5_pxi82"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_ot4a0")
+
+[node name="granadeCounter" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.95
+anchor_right = 0.08
+anchor_bottom = 0.95
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="granadeCounter"]
+layout_mode = 2
+theme = ExtResource("1_8stmh")
+text = "
+"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="granadeCounter"]
+layout_mode = 2
+texture = ExtResource("2_d8j8m")
+expand_mode = 4
+
+[node name="laserCounter" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.95
+anchor_right = 0.02
+anchor_bottom = 0.95
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="laserCounter"]
+layout_mode = 2
+theme = ExtResource("1_8stmh")
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="laserCounter"]
+layout_mode = 2
+texture = ExtResource("1_vfthx")
+expand_mode = 4
+
+[node name="healthBar" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -40.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="progress_bar" type="TextureProgressBar" parent="healthBar"]
+layout_mode = 2
+value = 75.0
+texture_under = ExtResource("4_qh5cx")
+texture_progress = ExtResource("5_pxi82")
