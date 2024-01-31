@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="meusegundojogo"
+config/name="test-game"
 run/main_scene="res://scenes/levels/outside.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"

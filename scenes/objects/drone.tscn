@@ -11,7 +11,7 @@ shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykoi7"]
-radius = 590.0
+radius = 1053.03
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ok71"]
 radius = 74.0068
@@ -68,6 +68,34 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop_movment"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_cy1f4"]
 length = 0.001
@@ -90,7 +118,7 @@ _data = {
 "RESET": SubResource("Animation_cy1f4")
 }
 
-[node name="drone" type="CharacterBody2D"]
+[node name="drone" type="CharacterBody2D" groups=["Entity"]]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_llu1n")

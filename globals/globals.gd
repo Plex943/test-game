@@ -19,15 +19,17 @@ var granade_amount = 5:
 
 var vunerable:bool = true
 var health = 50:
+	get:
+		return health
 	set(value):
 		if value > health:
 			health = min(value, 100)
 		else:
 			if vunerable:
 				health = value
-				health_update.emit()
 				timer_hit_cooldown()
 				vunerable = false
+		health_update.emit()
 
 func timer_hit_cooldown():
 	await get_tree().create_timer(0.5).timeout

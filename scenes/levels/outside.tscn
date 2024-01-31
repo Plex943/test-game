@@ -118,7 +118,7 @@ position = Vector2(765, 905)
 position = Vector2(2092, 1722)
 
 [node name="drone" parent="enemies" index="2" instance=ExtResource("16_65crq")]
-position = Vector2(-251, 489)
+position = Vector2(-976, 489)
 
 [connection signal="player_entred_gate" from="gate" to="." method="_on_gate_player_entred_gate"]
 [connection signal="player_entred" from="ground/House" to="." method="_on_house_player_entred"]
