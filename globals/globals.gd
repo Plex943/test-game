@@ -18,7 +18,7 @@ var granade_amount = 5:
 		granade_update.emit()
 
 var vunerable:bool = true
-var health = 50:
+var health = 100:
 	get:
 		return health
 	set(value):

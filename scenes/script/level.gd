@@ -23,7 +23,7 @@ func _on_player_laser(pos, direction):
 
 func create_laser(pos, direction):
 	var laser = laser_scene.instantiate() as Area2D
-	laser.position = pos
+	laser.global_position = pos
 	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
 	laser.direction = direction
 	$projectiles.add_child(laser)

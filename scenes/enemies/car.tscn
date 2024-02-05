@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=3 uid="uid://cimrx5hvqqvkl"]
+
+[ext_resource type="Texture2D" uid="uid://bsw4n0gdqaiw4" path="res://graphics/car/main.png" id="1_c57uo"]
+[ext_resource type="Script" path="res://scenes/script/car.gd" id="1_cohwg"]
+[ext_resource type="Texture2D" uid="uid://dyhre46ked0kt" path="res://graphics/car/turret.png" id="2_5gn68"]
+[ext_resource type="Texture2D" uid="uid://4o3cl1364f81" path="res://graphics/explosions/gun.png" id="4_k6tdk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_so8nt"]
+radius = 636.02
+
+[sub_resource type="Animation" id="Animation_wi7o5"]
+resource_name = "laser_charge"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("turret/RayCast2D/Line2D:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 10.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("turret/RayCast2D2/Line2D:width")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 10.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jwi1o"]
+_data = {
+"laser_charge": SubResource("Animation_wi7o5")
+}
+
+[node name="Car" type="PathFollow2D"]
+script = ExtResource("1_cohwg")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 11
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(-224, -174, -159, -186, -102, -169, -54, -136, 6, -168, 69, -176, 119, -169, 144, -162, 168, -125, 184, -83, 184, 73, 172, 120, 149, 155, 111, 162, 61, 171, 3, 164, -54, 130, -102, 177, -172, 182, -226, 171, -229, 107, -232, 75, -291, 37, -297, -36, -225, -81, -231, -115)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_c57uo")
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_so8nt")
+
+[node name="turret" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="turret"]
+rotation = 1.5708
+texture = ExtResource("2_5gn68")
+
+[node name="RayCast2D" type="RayCast2D" parent="turret"]
+position = Vector2(112, -26)
+target_position = Vector2(520, 0)
+
+[node name="Line2D" type="Line2D" parent="turret/RayCast2D"]
+position = Vector2(0, 2)
+points = PackedVector2Array(0, -2, 198, -2, 518, -2)
+width = 0.0
+default_color = Color(0.529412, 0.0862745, 0.168627, 0.54902)
+
+[node name="RayCast2D2" type="RayCast2D" parent="turret"]
+position = Vector2(112, 29)
+target_position = Vector2(520, 0)
+
+[node name="Line2D" type="Line2D" parent="turret/RayCast2D2"]
+position = Vector2(0, 2)
+points = PackedVector2Array(0, -2, 198, -2, 518, -2)
+width = 0.0
+default_color = Color(0.529412, 0.0862745, 0.168627, 0.54902)
+
+[node name="Sprite2D2" type="Sprite2D" parent="turret"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(189, -31)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_k6tdk")
+
+[node name="Sprite2D3" type="Sprite2D" parent="turret"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(189, 28)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_k6tdk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jwi1o")
+}
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

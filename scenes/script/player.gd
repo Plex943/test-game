@@ -26,7 +26,7 @@ func _process(_delta):
 	# gerando e randomizando os disparos da arma
 	
 	
-	var player_direction = (get_global_mouse_position() - position).normalized()
+	var player_direction = (get_global_mouse_position() - global_position).normalized()
 	if Input.is_action_pressed("primaryAction") and can_laser == true and Globals.laser_amount > 0:
 		Globals.laser_amount -= 1
 		var laser_markers = $laserMarkers.get_children()
