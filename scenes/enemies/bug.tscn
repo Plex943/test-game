@@ -194,14 +194,12 @@ sprite_frames = SubResource("SpriteFrames_32a6k")
 animation = &"walk"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(12, -2.38419e-07)
 rotation = -1.5708
 scale = Vector2(0.07, 0.07)
 shape = SubResource("CapsuleShape2D_fukqn")
 
 [node name="NoticeArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
@@ -209,7 +207,6 @@ scale = Vector2(0.07, 0.07)
 shape = SubResource("CircleShape2D_gflp1")
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 scale = Vector2(0.07, 0.07)
 collision_layer = 16
 

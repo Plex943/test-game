@@ -12,10 +12,12 @@ size = Vector2(403, 181)
 script = ExtResource("2_ppmud")
 
 [node name="Sprite2D" parent="." index="0"]
+rotation = 3.14159
 texture = ExtResource("2_8hq1v")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="1"]
 position = Vector2(-1, 11)
+rotation = 3.14159
 texture = ExtResource("4_lxj2n")
 
 [node name="Collision" parent="." index="2"]
