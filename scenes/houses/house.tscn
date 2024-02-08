@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvjavyr735cgf"]
+[gd_scene load_steps=13 format=3 uid="uid://cvjavyr735cgf"]
 
 [ext_resource type="Script" path="res://scenes/script/house.gd" id="1_0yn0h"]
 [ext_resource type="PackedScene" uid="uid://by1eufnoa84iv" path="res://scenes/objects/wall_lights_lamp.tscn" id="2_irb5g"]
 [ext_resource type="TileSet" uid="uid://cwptwygobkrky" path="res://scenes/levels/house.tres" id="2_iu4kg"]
+[ext_resource type="PackedScene" uid="uid://cicy8lkw8j7bn" path="res://scenes/objects/light.tscn" id="4_xee1x"]
+[ext_resource type="Texture2D" uid="uid://bxxt31weko4cu" path="res://graphics/decals/brushes/brush045.png" id="5_hpya0"]
+[ext_resource type="Texture2D" uid="uid://cor3c87u4lqts" path="res://graphics/decals/brushes/brush053.png" id="6_usrwj"]
+[ext_resource type="Texture2D" uid="uid://dis36a1qd1uec" path="res://graphics/decals/brushes/brush056.png" id="7_i4fua"]
+[ext_resource type="PackedScene" uid="uid://cg7uowhmo0frx" path="res://scenes/objects/toilet.tscn" id="8_1lt2g"]
+[ext_resource type="Texture2D" uid="uid://btx3cpuo55ffe" path="res://graphics/decals/brushes/brush052.png" id="9_2kiyj"]
+[ext_resource type="Texture2D" uid="uid://ehu423m6ysxy" path="res://graphics/decals/brushes/brush051.png" id="10_2fcun"]
+[ext_resource type="Texture2D" uid="uid://ck36mv6a4ucub" path="res://graphics/decals/brushes/brush048.png" id="11_bsrf6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv55u"]
 size = Vector2(4062, 2542)
@@ -34,20 +42,67 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(196611, 327680, 8, 65539, 327680, 8, 3, 65536, 7, -131069, 65536, 6, 2, 0, 6, 0, 0, 6, 1, 0, 6, 65534, 262144, 7, 65532, 262144, 7, -196605, 327680, 6, 65535, 131072, 7, 131071, 65536, 6, 196607, 65536, 6, 262143, 327680, 8, 196612, 393216, 1, 131076, 393216, 0, 196613, 393216, 1, 131077, 393216, 0)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(587, 206)
 shape = SubResource("RectangleShape2D_dv55u")
 
-[node name="wallLightsLamp" parent="." instance=ExtResource("2_irb5g")]
+[node name="lights" type="Node2D" parent="."]
+
+[node name="wallLightsLamp" parent="lights" instance=ExtResource("2_irb5g")]
 position = Vector2(-463, -850)
 rotation = 3.14159
 
-[node name="wallLightsLamp2" parent="." instance=ExtResource("2_irb5g")]
-position = Vector2(597, -858)
-rotation = 3.14159
-
-[node name="wallLightsLamp3" parent="." instance=ExtResource("2_irb5g")]
+[node name="wallLightsLamp3" parent="lights" instance=ExtResource("2_irb5g")]
 position = Vector2(2401, 666)
 rotation = -1.5708
+
+[node name="light" parent="lights" instance=ExtResource("4_xee1x")]
+position = Vector2(680, -902)
+
+[node name="light2" parent="lights" instance=ExtResource("4_xee1x")]
+position = Vector2(-228, 807)
+rotation = 1.5708
+
+[node name="brushes" type="Node2D" parent="."]
+
+[node name="Brush045" type="Sprite2D" parent="brushes"]
+modulate = Color(0.678431, 0.188235, 0.223529, 0.117647)
+position = Vector2(236, 764)
+rotation = 0.445059
+texture = ExtResource("5_hpya0")
+
+[node name="Brush053" type="Sprite2D" parent="brushes"]
+modulate = Color(0.462745, 0.368627, 0.247059, 0.258824)
+position = Vector2(-1135, -39)
+texture = ExtResource("6_usrwj")
+
+[node name="Brush056" type="Sprite2D" parent="brushes"]
+modulate = Color(0.247059, 0.356863, 0.262745, 0.223529)
+position = Vector2(-1079, 996)
+texture = ExtResource("7_i4fua")
+
+[node name="objetcs" type="Node2D" parent="."]
+
+[node name="toilet" parent="objetcs" instance=ExtResource("8_1lt2g")]
+position = Vector2(-856, 1217)
+rotation = 3.14159
+
+[node name="Brush052" type="Sprite2D" parent="."]
+modulate = Color(0.231373, 0.360784, 0.427451, 0.305882)
+position = Vector2(1461, 62)
+rotation = -0.689405
+texture = ExtResource("9_2kiyj")
+
+[node name="Brush051" type="Sprite2D" parent="."]
+modulate = Color(0.321569, 0.321569, 0.321569, 0.32549)
+position = Vector2(2151, -729)
+texture = ExtResource("10_2fcun")
+
+[node name="Brush048" type="Sprite2D" parent="."]
+modulate = Color(0.384314, 0.231373, 0.290196, 0.419608)
+position = Vector2(468, -608)
+rotation = 2.46964
+texture = ExtResource("11_bsrf6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
