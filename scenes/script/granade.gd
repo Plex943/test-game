@@ -8,7 +8,7 @@ func explode():
 	anim.play("explosion")
 	explosion_active = true
 
-func _process(delta):
+func _process(_delta):
 	if explosion_active:
 		var targets = get_tree().get_nodes_in_group("conteiner") + get_tree().get_nodes_in_group("Entity")
 		for target in targets:

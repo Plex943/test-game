@@ -630,7 +630,7 @@ shape = SubResource("RectangleShape2D_6apiy")
 navigation_polygon = SubResource("NavigationPolygon_mkxdg")
 
 [node name="hunter" parent="NavigationRegion2D" index="0" instance=ExtResource("25_xqt0c")]
-position = Vector2(6230, 1540)
+position = Vector2(1493, 1729)
 
 [connection signal="player_entred_gate" from="gate" to="." method="_on_gate_player_entred_gate"]
 [connection signal="player_entred" from="ground/House" to="." method="_on_house_player_entred"]

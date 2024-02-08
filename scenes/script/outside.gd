@@ -1,6 +1,6 @@
 extends LevelParent
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_gate_player_entred_gate():
