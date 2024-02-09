@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cym0kb1m30oqu"]
+[gd_scene load_steps=8 format=3 uid="uid://cym0kb1m30oqu"]
 
 [ext_resource type="Texture2D" uid="uid://c2241agk1i55p" path="res://graphics/enemies/scout.png" id="1_dxfmh"]
 [ext_resource type="Script" path="res://scenes/script/scout.gd" id="1_troi1"]
 [ext_resource type="Shader" path="res://scenes/enemies/scou.gdshader" id="2_5whnx"]
+[ext_resource type="AudioStream" uid="uid://bra042wfgf44a" path="res://audio/solid_impact.ogg" id="4_q3u21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l0g1n"]
 shader = ExtResource("2_5whnx")
@@ -28,7 +29,6 @@ rotation = 1.5708
 texture = ExtResource("1_dxfmh")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-21, 0)
 shape = SubResource("CircleShape2D_korxx")
 
@@ -41,7 +41,6 @@ position = Vector2(87, -31)
 position = Vector2(95, 11)
 
 [node name="attackArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
 shape = SubResource("CircleShape2D_3dmd7")
@@ -50,6 +49,9 @@ shape = SubResource("CircleShape2D_3dmd7")
 
 [node name="hitCooldowm" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_q3u21")
 
 [connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attackArea" to="." method="_on_attack_area_body_exited"]

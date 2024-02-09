@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cagkxqkmax76k"]
+[gd_scene load_steps=34 format=3 uid="uid://cagkxqkmax76k"]
 
 [ext_resource type="PackedScene" uid="uid://p63st54n5eu0" path="res://scenes/levels/level.tscn" id="1_ykmvc"]
 [ext_resource type="Texture2D" uid="uid://df21x620c7dr4" path="res://graphics/ground/dirt.png" id="2_0y3pq"]
@@ -29,6 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://dtu06v22td1d7" path="res://graphics/objects/infestation/small_3.png" id="17_7p1ql"]
 [ext_resource type="Texture2D" uid="uid://blk6gp7bh650l" path="res://graphics/objects/infestation/small_2.png" id="18_iyale"]
 [ext_resource type="Texture2D" uid="uid://0fgifx8mhifk" path="res://graphics/objects/infestation/small.png" id="19_iho8a"]
+[ext_resource type="PackedScene" uid="uid://basex5qxg86j7" path="res://scenes/enemies/bug.tscn" id="29_7oabo"]
+[ext_resource type="PackedScene" uid="uid://cym0kb1m30oqu" path="res://scenes/enemies/scout.tscn" id="30_856sv"]
+[ext_resource type="PackedScene" uid="uid://fw01nvnfbg0v" path="res://scenes/objects/drone.tscn" id="31_qvkqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvrfx"]
 size = Vector2(1178, 403.5)
@@ -392,8 +395,41 @@ metadata/_edit_group_ = true
 [node name="Collision" type="CollisionShape2D" parent="exitGate" index="0"]
 shape = SubResource("RectangleShape2D_fvrfx")
 
+[node name="bug" parent="enemies" index="0" instance=ExtResource("29_7oabo")]
+position = Vector2(-150, 991)
+
+[node name="bug2" parent="enemies" index="1" instance=ExtResource("29_7oabo")]
+position = Vector2(1176, 1212)
+
+[node name="bug3" parent="enemies" index="2" instance=ExtResource("29_7oabo")]
+position = Vector2(-349, 2117)
+
+[node name="bug4" parent="enemies" index="3" instance=ExtResource("29_7oabo")]
+position = Vector2(228, 1568)
+
+[node name="bug5" parent="enemies" index="4" instance=ExtResource("29_7oabo")]
+position = Vector2(784, 1874)
+
+[node name="scout" parent="enemies" index="5" instance=ExtResource("30_856sv")]
+position = Vector2(296, -2110)
+
+[node name="scout2" parent="enemies" index="6" instance=ExtResource("30_856sv")]
+position = Vector2(880, -1319)
+
+[node name="scout3" parent="enemies" index="7" instance=ExtResource("30_856sv")]
+position = Vector2(2654, -321)
+
+[node name="scout4" parent="enemies" index="8" instance=ExtResource("30_856sv")]
+position = Vector2(2241, 334)
+
+[node name="drone" parent="enemies" index="9" instance=ExtResource("31_qvkqc")]
+position = Vector2(-1532, 2772)
+
+[node name="drone2" parent="enemies" index="10" instance=ExtResource("31_qvkqc")]
+position = Vector2(-1853, -442)
+
 [node name="player" parent="." index="8"]
-position = Vector2(-3924, 3429)
+position = Vector2(-4007, 3766)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" parent="player" index="8"]

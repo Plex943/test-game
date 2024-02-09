@@ -38,6 +38,7 @@ func hit():
 	if vunerable:
 		health -= 10
 		vunerable = false
+		$Audios/AudioStreamPlayer2D.play()
 	if health <= 0:
 		explosion()
 	$HitCooldowm.start()

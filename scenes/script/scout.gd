@@ -28,6 +28,7 @@ func hit():
 	if can_hit:
 		health -= 10
 		can_hit = false
+		$AudioStreamPlayer2D.play()
 	if health <= 0:
 		queue_free()
 

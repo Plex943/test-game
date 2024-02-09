@@ -27,24 +27,25 @@ func hit():
 	if can_hit:
 		can_hit = false
 		heatlh -= 10
+		$AudioStreamPlayer2D.play()
 	if heatlh <= 0:
 		$Particles/HitParticles.emitting = true
 		await get_tree().create_timer(0.5).timeout
 		queue_free()
 
-func _on_notice_area_body_entered(body):
+func _on_notice_area_body_entered(_body):
 	active = true
 	$AnimatedSprite2D.play("walk")
 
-func _on_notice_area_body_exited(body):
+func _on_notice_area_body_exited(_body):
 	active = false
 	$AnimatedSprite2D.stop()
 
-func _on_attack_area_body_entered(body):
+func _on_attack_area_body_entered(_body):
 	player_nearby = true
 	$AnimatedSprite2D.play("attack")
 
-func _on_attack_area_body_exited(body):
+func _on_attack_area_body_exited(_body):
 	player_nearby = false
 
 func _on_attack_cooldown_timeout():

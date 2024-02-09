@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ki03c0vfergq"]
+[gd_scene load_steps=38 format=3 uid="uid://ki03c0vfergq"]
 
 [ext_resource type="PackedScene" uid="uid://p63st54n5eu0" path="res://scenes/levels/level.tscn" id="1_1a8n8"]
 [ext_resource type="PackedScene" uid="uid://beprltfovggip" path="res://scenes/objects/gate.tscn" id="2_7wdjw"]
@@ -24,7 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://dtu06v22td1d7" path="res://graphics/objects/infestation/small_3.png" id="22_rb82y"]
 [ext_resource type="Texture2D" uid="uid://cy6a05q52jp2k" path="res://graphics/objects/infestation/line.png" id="23_mxfbe"]
 [ext_resource type="PackedScene" uid="uid://coumulqvdm057" path="res://scenes/objects/bed.tscn" id="23_o3axn"]
+[ext_resource type="PackedScene" uid="uid://basex5qxg86j7" path="res://scenes/enemies/bug.tscn" id="24_x3mp0"]
+[ext_resource type="PackedScene" uid="uid://cym0kb1m30oqu" path="res://scenes/enemies/scout.tscn" id="25_6suxn"]
 [ext_resource type="PackedScene" uid="uid://3usdshtdo8pg" path="res://scenes/enemies/hunter.tscn" id="25_xqt0c"]
+[ext_resource type="PackedScene" uid="uid://fw01nvnfbg0v" path="res://scenes/objects/drone.tscn" id="26_uykqf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5jr3"]
 texture = ExtResource("4_ehl2y")
@@ -151,193 +154,200 @@ texture = ExtResource("2_rpqo0")
 region_enabled = true
 region_rect = Rect2(-20000, -20000, 20000, 20000)
 
-[node name="DirtPatch" type="Sprite2D" parent="ground" index="2"]
+[node name="Stones3" type="Sprite2D" parent="ground" index="2"]
+texture_repeat = 2
+position = Vector2(462, 398)
+texture = ExtResource("2_rpqo0")
+region_enabled = true
+region_rect = Rect2(-20000, -20000, 20000, 20000)
+
+[node name="DirtPatch" type="Sprite2D" parent="ground" index="3"]
 position = Vector2(-693, 869)
 texture = ExtResource("3_ifwx6")
 
-[node name="DirtPatch8" type="Sprite2D" parent="ground" index="3"]
+[node name="DirtPatch8" type="Sprite2D" parent="ground" index="4"]
 modulate = Color(0.384314, 0.384314, 0.384314, 1)
 position = Vector2(-2477, 1261)
 rotation = 0.898845
 scale = Vector2(2, 2)
 texture = ExtResource("3_ifwx6")
 
-[node name="DirtPatch2" type="Sprite2D" parent="ground" index="4"]
+[node name="DirtPatch2" type="Sprite2D" parent="ground" index="5"]
 modulate = Color(0.835294, 0.835294, 0.835294, 1)
 position = Vector2(4646, 2787)
 rotation = -0.523599
 scale = Vector2(1.52359, 1.55098)
 texture = ExtResource("3_ifwx6")
 
-[node name="DirtPatch3" type="Sprite2D" parent="ground" index="5"]
+[node name="DirtPatch3" type="Sprite2D" parent="ground" index="6"]
 modulate = Color(0.729412, 0.729412, 0.729412, 1)
 position = Vector2(6142, 1667)
 rotation = -3.14159
 scale = Vector2(1.52359, 1.55098)
 texture = ExtResource("3_ifwx6")
 
-[node name="DirtPatch4" type="Sprite2D" parent="ground" index="6"]
+[node name="DirtPatch4" type="Sprite2D" parent="ground" index="7"]
 position = Vector2(4870, 1547)
 scale = Vector2(1.52359, 1.55098)
 texture = ExtResource("3_ifwx6")
 
-[node name="DirtPatch10" type="Sprite2D" parent="ground" index="7"]
+[node name="DirtPatch10" type="Sprite2D" parent="ground" index="8"]
 modulate = Color(0.831373, 0.831373, 0.831373, 1)
 position = Vector2(6310, 350)
 rotation = -0.418879
 scale = Vector2(1.52359, 1.55098)
 texture = ExtResource("3_ifwx6")
 
-[node name="DirtPatch5" type="Sprite2D" parent="ground" index="8"]
+[node name="DirtPatch5" type="Sprite2D" parent="ground" index="9"]
 modulate = Color(0.658824, 0.658824, 0.658824, 1)
 position = Vector2(8176, 210)
 scale = Vector2(1.52359, 1.55098)
 texture = ExtResource("3_ifwx6")
 
-[node name="DirtPatch6" type="Sprite2D" parent="ground" index="9"]
+[node name="DirtPatch6" type="Sprite2D" parent="ground" index="10"]
 modulate = Color(0.956863, 0.956863, 0.956863, 1)
 position = Vector2(8022, 3804)
 scale = Vector2(1.52359, 1.55098)
 texture = ExtResource("3_ifwx6")
 
-[node name="DirtPatch9" type="Sprite2D" parent="ground" index="10"]
+[node name="DirtPatch9" type="Sprite2D" parent="ground" index="11"]
 modulate = Color(0.815686, 0.815686, 0.815686, 1)
 position = Vector2(6784, 2768)
 scale = Vector2(1.52359, 1.55098)
 texture = ExtResource("3_ifwx6")
 
-[node name="DirtPatch7" type="Sprite2D" parent="ground" index="11"]
+[node name="DirtPatch7" type="Sprite2D" parent="ground" index="12"]
 modulate = Color(0.784314, 0.784314, 0.784314, 1)
 position = Vector2(3206, 4395)
 rotation = 0.628319
 scale = Vector2(1.52359, 1.55098)
 texture = ExtResource("3_ifwx6")
 
-[node name="Moss6" type="Sprite2D" parent="ground" index="12"]
+[node name="Moss6" type="Sprite2D" parent="ground" index="13"]
 position = Vector2(4580, 452)
 texture = ExtResource("7_yc7od")
 
-[node name="Moss25" type="Sprite2D" parent="ground" index="13"]
+[node name="Moss25" type="Sprite2D" parent="ground" index="14"]
 position = Vector2(4998, 2760)
 texture = ExtResource("7_yc7od")
 
-[node name="Moss24" type="Sprite2D" parent="ground" index="14"]
+[node name="Moss24" type="Sprite2D" parent="ground" index="15"]
 position = Vector2(7308, 3474)
 texture = ExtResource("7_yc7od")
 
-[node name="Moss28" type="Sprite2D" parent="ground" index="15"]
+[node name="Moss28" type="Sprite2D" parent="ground" index="16"]
 position = Vector2(7308, 3474)
 texture = ExtResource("7_yc7od")
 
-[node name="Moss29" type="Sprite2D" parent="ground" index="16"]
+[node name="Moss29" type="Sprite2D" parent="ground" index="17"]
 position = Vector2(4756, 4755)
 texture = ExtResource("7_yc7od")
 
-[node name="Moss7" type="Sprite2D" parent="ground" index="17"]
+[node name="Moss7" type="Sprite2D" parent="ground" index="18"]
 position = Vector2(5044, 2231)
 texture = ExtResource("8_hxe08")
 
-[node name="Moss8" type="Sprite2D" parent="ground" index="18"]
+[node name="Moss8" type="Sprite2D" parent="ground" index="19"]
 position = Vector2(5579, 3563)
 rotation = 1.98095
 texture = ExtResource("6_njhat")
 
-[node name="Moss26" type="Sprite2D" parent="ground" index="19"]
+[node name="Moss26" type="Sprite2D" parent="ground" index="20"]
 position = Vector2(5579, 3296)
 rotation = 1.5708
 texture = ExtResource("6_njhat")
 
-[node name="Moss9" type="Sprite2D" parent="ground" index="20"]
+[node name="Moss9" type="Sprite2D" parent="ground" index="21"]
 position = Vector2(5497, 3031)
 rotation = 0.698132
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss11" type="Sprite2D" parent="ground" index="21"]
+[node name="Moss11" type="Sprite2D" parent="ground" index="22"]
 position = Vector2(4186, 2339)
 rotation = 1.5708
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss15" type="Sprite2D" parent="ground" index="22"]
+[node name="Moss15" type="Sprite2D" parent="ground" index="23"]
 position = Vector2(5708, 2039)
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss16" type="Sprite2D" parent="ground" index="23"]
+[node name="Moss16" type="Sprite2D" parent="ground" index="24"]
 position = Vector2(6228, 862)
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss17" type="Sprite2D" parent="ground" index="24"]
+[node name="Moss17" type="Sprite2D" parent="ground" index="25"]
 position = Vector2(7908, 4052)
 rotation = -0.261799
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss18" type="Sprite2D" parent="ground" index="25"]
+[node name="Moss18" type="Sprite2D" parent="ground" index="26"]
 position = Vector2(5849, 3989)
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss30" type="Sprite2D" parent="ground" index="26"]
+[node name="Moss30" type="Sprite2D" parent="ground" index="27"]
 position = Vector2(4813, 4096)
 rotation = 1.5708
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss27" type="Sprite2D" parent="ground" index="27"]
+[node name="Moss27" type="Sprite2D" parent="ground" index="28"]
 position = Vector2(5547, 3409)
 rotation = 1.5708
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss19" type="Sprite2D" parent="ground" index="28"]
+[node name="Moss19" type="Sprite2D" parent="ground" index="29"]
 position = Vector2(7902, 1670)
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss20" type="Sprite2D" parent="ground" index="29"]
+[node name="Moss20" type="Sprite2D" parent="ground" index="30"]
 position = Vector2(7286, 131)
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss21" type="Sprite2D" parent="ground" index="30"]
+[node name="Moss21" type="Sprite2D" parent="ground" index="31"]
 position = Vector2(8695, -474)
 rotation = 1.5708
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="Moss10" type="Sprite2D" parent="ground" index="31"]
+[node name="Moss10" type="Sprite2D" parent="ground" index="32"]
 position = Vector2(4275, 3896)
 rotation = 1.7017
 texture = ExtResource("6_njhat")
 
-[node name="Moss14" type="Sprite2D" parent="ground" index="32"]
+[node name="Moss14" type="Sprite2D" parent="ground" index="33"]
 position = Vector2(5027, 3912)
 rotation = -2.10312
 texture = ExtResource("6_njhat")
 
-[node name="Moss12" type="Sprite2D" parent="ground" index="33"]
+[node name="Moss12" type="Sprite2D" parent="ground" index="34"]
 position = Vector2(4478, -674)
 texture = ExtResource("8_hxe08")
 
-[node name="Moss13" type="Sprite2D" parent="ground" index="34"]
+[node name="Moss13" type="Sprite2D" parent="ground" index="35"]
 position = Vector2(4981, 2512)
 rotation = 1.5708
 texture = ExtResource("8_hxe08")
 
-[node name="Moss22" type="Sprite2D" parent="ground" index="35"]
+[node name="Moss22" type="Sprite2D" parent="ground" index="36"]
 position = Vector2(8675, 1675)
 rotation = 1.5708
 texture = ExtResource("8_hxe08")
 
-[node name="Moss23" type="Sprite2D" parent="ground" index="36"]
+[node name="Moss23" type="Sprite2D" parent="ground" index="37"]
 position = Vector2(7102, 2184)
 rotation = 1.5708
 texture = ExtResource("8_hxe08")
 
-[node name="TileMap" type="TileMap" parent="ground" index="37"]
+[node name="TileMap" type="TileMap" parent="ground" index="38"]
 tile_set = SubResource("TileSet_l136j")
 format = 2
 layer_0/name = "soil"
@@ -350,28 +360,28 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(-196602, 65536, 0, -131066, 0, 1, -65530, 0, 2, 6, 0, 2, 65542, 0, 2, 131078, 65536, 2, 131079, 65536, 0, 131080, 65536, 0, 131081, 65536, 0, 131082, 65536, 0, 458762, 0, 2, 393226, 0, 2, 327690, 0, 1, 524298, 0, 3, 655367, 0, 0, 655368, 65536, 0, 655369, 65536, 0, 655370, 131072, 2, 589834, 65536, 1, 589835, 131072, 0, 589837, 65536, 0, 589836, 65536, 1, 589838, 131072, 2, 524302, 0, 2, 458766, 131072, 1, 458765, 65536, 0, 458764, 65536, 2, 393228, 0, 2, 327692, 65536, 1, 327693, 65536, 0, 327694, 65536, 0, 327695, 65536, 0, 327696, 131072, 1, 393232, 0, 3, 131083, 65536, 0, 131086, 0, 0, 131088, 65536, 0, 131089, 65536, 0, 131090, 131072, 1, 196626, 0, 2, 327698, 0, 2, 262162, 0, 2, 524306, 0, 1, 589842, 0, 2, 655378, 65536, 2, 655379, 65536, 0, 655380, 65536, 0, 655382, 131072, 2, 655381, 65536, 0, 131084, 131072, 0, 393234, 0, 3, 655372, 0, 2, 720908, 0, 2, 786444, 131072, 2, 786443, 65536, 0, 655373, 0, 0, 655374, 65536, 0, 655375, 65536, 0, 655376, 65536, 0, 655377, 131072, 0, 131087, 65536, 0, 589846, 0, 2, 524310, 0, 2, 458774, 0, 2, 327702, 0, 2, 393238, 0, 2, 262166, 0, 2, 196630, 0, 2, 65558, 0, 2, 131094, 0, 2, 22, 0, 2, 21, 131072, 0, 20, 65536, 0, 19, 65536, 0, 18, 65536, 0, 17, 65536, 1, 65553, 0, 3, 262163, 0, 0, 262164, 65536, 0, 262165, 131072, 0, 786442, 65536, 0, 786441, 65536, 0, 786440, 65536, 0, 786439, 65536, 0, 786438, 0, 0, -196601, 65536, 0, -196600, 65536, 0, -196599, 65536, 0, -196598, 65536, 0, -196597, 65536, 0, -196596, 65536, 0, -196595, 65536, 0, -196594, 65536, 0, -196593, 65536, 0, -196592, 65536, 0, -196591, 65536, 0, -196590, 65536, 0, -196589, 65536, 0, -196588, 65536, 0, -196587, 65536, 0, -196586, 131072, 1, -131050, 0, 2, -65514, 0, 2, -131065, 0, 0, -131064, 131072, 1, -65528, 0, 2, 8, 0, 2, 65544, 65536, 2, 65545, 65536, 0, 65546, 65536, 0, 65547, 131072, 2, 11, 0, 2, -65525, 0, 2, -131061, 65536, 1, -131060, 65536, 0, -131059, 65536, 0, -131058, 131072, 0, -196603, 0, 0)
 
-[node name="Moss1" type="Sprite2D" parent="ground" index="38"]
+[node name="Moss1" type="Sprite2D" parent="ground" index="39"]
 position = Vector2(2346, 562)
 texture = ExtResource("6_njhat")
 
-[node name="Moss3" type="Sprite2D" parent="ground" index="39"]
+[node name="Moss3" type="Sprite2D" parent="ground" index="40"]
 position = Vector2(2809, 1126)
 texture = ExtResource("7_yc7od")
 
-[node name="Moss4" type="Sprite2D" parent="ground" index="40"]
+[node name="Moss4" type="Sprite2D" parent="ground" index="41"]
 position = Vector2(2881, -49)
 texture = ExtResource("8_hxe08")
 
-[node name="Moss2" type="Sprite2D" parent="ground" index="41"]
+[node name="Moss2" type="Sprite2D" parent="ground" index="42"]
 position = Vector2(2373, -257)
 texture = ExtResource("9_csrlm")
 
-[node name="Moss5" type="Sprite2D" parent="ground" index="42"]
+[node name="Moss5" type="Sprite2D" parent="ground" index="43"]
 position = Vector2(3601, 1124)
 scale = Vector2(1.74719, 1.88462)
 texture = ExtResource("10_stnxy")
 
-[node name="House" parent="ground" index="43" instance=ExtResource("11_48i35")]
+[node name="House" parent="ground" index="44" instance=ExtResource("11_48i35")]
 position = Vector2(-1543, 3941)
 rotation = -2.21482
 
@@ -587,6 +597,45 @@ rotation = 0.925025
 position = Vector2(-1125, 3558)
 rotation = -2.30383
 
+[node name="scout" parent="enemies" index="0" instance=ExtResource("25_6suxn")]
+position = Vector2(8045, 3623)
+
+[node name="scout2" parent="enemies" index="1" instance=ExtResource("25_6suxn")]
+position = Vector2(4803, 3491)
+
+[node name="scout3" parent="enemies" index="2" instance=ExtResource("25_6suxn")]
+position = Vector2(2484, 4492)
+
+[node name="scout4" parent="enemies" index="3" instance=ExtResource("25_6suxn")]
+position = Vector2(4204, 297)
+
+[node name="scout5" parent="enemies" index="4" instance=ExtResource("25_6suxn")]
+position = Vector2(7261, -236)
+
+[node name="scout6" parent="enemies" index="5" instance=ExtResource("25_6suxn")]
+position = Vector2(-1657, 4570)
+
+[node name="scout7" parent="enemies" index="6" instance=ExtResource("25_6suxn")]
+position = Vector2(-1855, 4294)
+
+[node name="scout8" parent="enemies" index="7" instance=ExtResource("25_6suxn")]
+position = Vector2(-369, 4102)
+
+[node name="scout9" parent="enemies" index="8" instance=ExtResource("25_6suxn")]
+position = Vector2(-2617, 2670)
+
+[node name="drone" parent="enemies" index="9" instance=ExtResource("26_uykqf")]
+position = Vector2(-1251, 552)
+
+[node name="drone2" parent="enemies" index="10" instance=ExtResource("26_uykqf")]
+position = Vector2(3544, 1565)
+
+[node name="bug" parent="enemies" index="11" instance=ExtResource("24_x3mp0")]
+position = Vector2(-1376, 3176)
+
+[node name="bug2" parent="enemies" index="12" instance=ExtResource("24_x3mp0")]
+position = Vector2(-896, 3168)
+
 [node name="CarPath" type="Path2D" parent="." index="9"]
 position = Vector2(67, -136)
 curve = SubResource("Curve2D_hfc70")
@@ -630,7 +679,7 @@ shape = SubResource("RectangleShape2D_6apiy")
 navigation_polygon = SubResource("NavigationPolygon_mkxdg")
 
 [node name="hunter" parent="NavigationRegion2D" index="0" instance=ExtResource("25_xqt0c")]
-position = Vector2(1493, 1729)
+position = Vector2(6062, 3327)
 
 [connection signal="player_entred_gate" from="gate" to="." method="_on_gate_player_entred_gate"]
 [connection signal="player_entred" from="ground/House" to="." method="_on_house_player_entred"]

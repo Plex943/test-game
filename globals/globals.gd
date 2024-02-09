@@ -4,6 +4,8 @@ signal health_update
 signal laser_update
 signal granade_update
 
+var player_hit_audio : AudioStreamPlayer2D
+
 var laser_amount = 20:
 	get:
 		return laser_amount
@@ -29,6 +31,7 @@ var health = 100:
 				health = value
 				timer_hit_cooldown()
 				vunerable = false
+				player_hit_audio.play()
 		health_update.emit()
 
 func timer_hit_cooldown():
@@ -36,3 +39,8 @@ func timer_hit_cooldown():
 	vunerable = true
 
 var player_pos: Vector2
+
+func _ready():
+	player_hit_audio = AudioStreamPlayer2D.new()
+	player_hit_audio.stream = load("res://audio/solid_impact.ogg")
+	add_child(player_hit_audio)
